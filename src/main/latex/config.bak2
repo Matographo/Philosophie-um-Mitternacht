@@ -1,0 +1,198 @@
+% =============================================================================
+% KONFIGURATION FÜR DAS BUCH
+% =============================================================================
+% Alle wichtigen Einstellungen für das Buch-Projekt.
+% Ändern Sie Abschnitt 1 für Ihre eigenen Daten.
+% =============================================================================
+
+% -----------------------------------------------------------------------------
+% 1. PERSÖNLICHE DATEN (HIER ÄNDERN!)
+% -----------------------------------------------------------------------------
+% Titel und Autor des Buches
+\newcommand{\myTitle}{Titel des Buches}
+\newcommand{\mySubtitle}{Ein Untertitel}
+\newcommand{\myName}{Ihr Name}
+\newcommand{\myLocation}{Saarbrücken}
+\newcommand{\myYear}{2025}
+\newcommand{\myPublisher}{}
+
+% -----------------------------------------------------------------------------
+% 2. GRUNDEINSTELLUNGEN
+% -----------------------------------------------------------------------------
+\RequirePackage[utf8]{inputenc}
+\RequirePackage[T1]{fontenc}
+\PassOptionsToPackage{ngerman}{babel}
+\RequirePackage{babel}
+\RequirePackage{csquotes}
+
+% -----------------------------------------------------------------------------
+% 3. SEITEN-LAYOUT
+% -----------------------------------------------------------------------------
+\usepackage{geometry}
+\geometry{
+	a4paper,
+	left=30mm,
+	right=25mm,
+	top=30mm,
+	bottom=30mm,
+	headsep=12mm,
+	footskip=15mm,
+	bindingoffset=10mm
+}
+
+% -----------------------------------------------------------------------------
+% 4. KOPF- UND FUSSZEILEN
+% -----------------------------------------------------------------------------
+\usepackage[
+	headsepline=0.5pt,
+	footsepline=0.5pt,
+	automark
+]{scrlayer-scrpage}
+
+\clearmainofpairofpagestyles
+\ihead{\headmark}
+\ohead{\pagemark}
+\cfoot{}
+\pagestyle{scrheadings}
+
+% -----------------------------------------------------------------------------
+% 5. LITERATURVERZEICHNIS
+% -----------------------------------------------------------------------------
+\RequirePackage[
+	backend=biber,
+	style=authoryear,
+	sorting=nyt,
+	maxbibnames=99
+]{biblatex}
+\addbibresource{Bibliography}
+
+% -----------------------------------------------------------------------------
+% 6. TABELLEN UND ABBILDUNGEN
+% -----------------------------------------------------------------------------
+\usepackage{tabularx}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{booktabs}
+\usepackage{multirow}
+\usepackage{wrapfig}
+\usepackage{float}
+
+\captionsetup{
+	format=plain,
+	font=small,
+	labelfont=bf,
+	textfont=it
+}
+
+% -----------------------------------------------------------------------------
+% 7. CODE-BLÖCKE
+% -----------------------------------------------------------------------------
+\usepackage{listings}
+
+\lstset{
+	language=[LaTeX]TeX,
+	keywordstyle=\color{RoyalBlue}\bfseries,
+	basicstyle=\small\ttfamily,
+	commentstyle=\color{Green!60!black},
+	stringstyle=\color{orange},
+	numbers=none,
+	stepnumber=5,
+	numbersep=8pt,
+	showstringspaces=false,
+	breaklines=true,
+	frame=tb,
+	frameround=tttt,
+	backgroundcolor=\color{gray!5}
+}
+
+\lstdefinestyle{Python}{
+	belowcaptionskip=1\ baselineskip,
+	breaklines=true,
+	language=Python,
+	basicstyle=\footnotesize\ttfamily,
+	keywordstyle=\color{blue},
+	commentstyle=\color{green!60!black},
+	stringstyle=\color{orange},
+	backgroundcolor=\color{gray!5}
+}
+
+% -----------------------------------------------------------------------------
+% 8. MATHEMATIK
+% -----------------------------------------------------------------------------
+\RequirePackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amssymb}
+
+% Theorem-Umgebungen
+\newtheorem{defi}{Definition}[chapter]
+\newtheorem{bsp}[defi]{Beispiel}
+\newtheorem{satz}[defi]{Satz}
+
+% -----------------------------------------------------------------------------
+% 9. NÜTZLICHE TOOLS
+% -----------------------------------------------------------------------------
+\usepackage{xcolor}
+\usepackage{xspace}
+\usepackage{textcomp}
+\usepackage{pdfpages}
+\usepackage{blindtext}
+
+\usepackage{todonotes}
+% \setuptodonotes{disabled}
+\newcommand{\todox}[1]{\todo[inline, color=blue!20]{#1}}
+
+% Schusterjungen und Hurenkinder verhindern
+\clubpenalty = 10000
+\widowpenalty = 10000
+\displaywidowpenalty = 10000
+
+% -----------------------------------------------------------------------------
+% 10. PDF UND HYPERLINKS
+% -----------------------------------------------------------------------------
+\usepackage[
+	pdftex,
+	linktocpage=true,
+	colorlinks=true,
+	linkcolor=blue,
+	urlcolor=blue,
+	citecolor=blue,
+	pdfborder={0 0 0},
+	bookmarksopen=true,
+	bookmarksopenlevel=0
+]{hyperref}
+
+\hypersetup{
+	pdftitle={\myTitle},
+	pdfauthor={\myName},
+	pdfsubject={\mySubtitle},
+	pdfcreator={LaTeX}
+}
+
+\addto\extrasngerman{%
+	\def\sectionautorefname{Abschnitt}%
+	\def\subsectionautorefname{Abschnitt}%
+	\def\subsubsectionautorefname{Abschnitt}%
+	\def\figureautorefname{Abbildung}%
+	\def\tableautorefname{Tabelle}%
+	\def\equationautorefname{Gleichung}%
+	\def\chapterautorefname{Kapitel}%
+}
+
+% -----------------------------------------------------------------------------
+% 11. SCHRIFTART
+% -----------------------------------------------------------------------------
+\usepackage{mathpazo}
+\usepackage{microtype}
+
+\setkomafont{disposition}{\normalfont\bfseries}
+\setkomafont{chapterprefix}{\large}
+
+% -----------------------------------------------------------------------------
+% 12. INHALTSVERZEICHNIS
+% -----------------------------------------------------------------------------
+\settocdepth{subsection}
+\setsecnumdepth{subsection}
+
+% =============================================================================
+% ENDE DER KONFIGURATION
+% =============================================================================

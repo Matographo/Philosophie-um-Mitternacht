@@ -1,0 +1,70 @@
+% =============================================================================
+% HAUPTDATEI FÜR DAS BUCH
+% =============================================================================
+% Kompilieren mit: pdflatex main.tex && biber main && pdflatex main.tex
+% =============================================================================
+
+\documentclass[
+    a4paper,
+    oneside,                   % Einseitiger Druck (für digital)
+    %twoside,                 % Zweiseitig für Buchdruck (auskommentieren)
+    11pt,
+    chapterprefix=true,        % "Kapitel 1" statt nur "1"
+    numbers=enddot,           % Nummern mit Punkt am Ende (1.2.3.)
+    parskip=half-             % Halbe Absatzhöhe als Abstand
+]{scrbook}
+
+% Konfiguration laden
+\input{config}
+
+% =============================================================================
+% DOKUMENT
+% =============================================================================
+\begin{document}
+
+% Keine zusätzlichen Leerzeichen zwischen Absätzen
+\frenchspacing
+
+% Vortext (keine Seitenzahlen oder Römische Seitenzahlen)
+\frontmatter
+\pagestyle{plain}
+
+% Titelseite
+\input{Vortext/Titelseite}
+\cleardoublepage
+
+% Vorwort
+\input{Vortext/Vorwort}
+\cleardoublepage
+
+% Inhaltsverzeichnis
+\tableofcontents
+\cleardoublepage
+
+% -----------------------------------------------------------------------------
+% Haupttext
+% -----------------------------------------------------------------------------
+\mainmatter
+\pagestyle{headings}          % Kolumnentitel mit Kapitelnamen
+
+% Kapitel laden
+\input{Kapitel/KapitelSammlung}
+
+% -----------------------------------------------------------------------------
+% Nachspann (Anhänge und Bibliographie)
+% -----------------------------------------------------------------------------
+\backmatter
+
+% Abkürzungsverzeichnis
+\input{Vortext/Abkürzungsverzeichnis}
+\cleardoublepage
+
+% Bibliography
+\input{Vortext/Bibliographie}
+\cleardoublepage
+
+% Stichwortverzeichnis (optional -requires makeindex)
+% \input{Vortext/Stichwortverzeichnis}
+
+% Schluss-Seite (leer)
+\end{document}

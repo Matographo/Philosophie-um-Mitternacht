@@ -1,0 +1,39 @@
+% =============================================================================
+% TITELSEITE FÜR DAS BUCH
+% =============================================================================
+
+\begin{titlepage}
+	\centering
+
+	% Platz oben
+	\vspace*{2cm}
+
+	% Titel
+	{\LARGE\bfseries\myTitle\par}
+	\vspace{0.5cm}
+
+	% Untertitel (falls vorhanden)
+	{\large\mySubtitle\par}
+	\vspace{2cm}
+
+	% Autor
+	{\Large\myName\par}
+	\vspace{1cm}
+
+	% Verlag oder Selbstverlag
+	\vfill
+
+	{\large
+		\if\myPublisher\@empty
+			Selbstverlag, \myLocation, \myYear
+		\else
+			\myPublisher\par
+			\vspace{0.5cm}
+			\myLocation, \myYear
+		\fi
+	}
+
+	% Platz unten
+	\vspace{2cm}
+
+\end{titlepage}

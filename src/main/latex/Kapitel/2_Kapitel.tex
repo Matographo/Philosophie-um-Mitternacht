@@ -1,0 +1,69 @@
+% =============================================================================
+% KAPITEL 2: GRUNDLAGEN
+% =============================================================================
+
+\chapter{Grundlagen}
+
+In diesem Kapitel werden die Grundlagen erklärt.
+
+% -----------------------------------------------------------------------------
+% Erster Abschnitt
+% -----------------------------------------------------------------------------
+\section{Erster Abschnitt}
+
+\blindtext
+
+\subsection{Unterabschnitt}
+
+\blindtext
+
+\begin{figure}[htbp]
+	\centering
+	%\includegraphics[width=0.8\textwidth]{beispielbild}
+	\caption[Beispielabbildung]{Dies ist eine Beispielabbildung}
+	\label{fig:beispiel}
+\end{figure}
+
+Wie in \autoref{fig:beispiel} zu sehen ist, handelt es sich um ein wichtiges Konzept.
+
+% -----------------------------------------------------------------------------
+% Zweiter Abschnitt
+% -----------------------------------------------------------------------------
+\section{Zweiter Abschnitt}
+
+\blindtext
+
+% Beispiel für eine Tabelle
+\begin{table}[htbp]
+	\centering
+	\caption{Beispieltabelle}
+	\begin{tabular}{ll}
+		\toprule
+		\textbf{Spalte 1} & \textbf{Spalte 2} \\
+		\midrule
+		Wert 1            & Wert 2            \\
+		Wert 3            & Wert 4            \\
+		\bottomrule
+	\end{tabular}
+	\label{tab:beispiel}
+\end{table}
+
+\autoref{tab:beispiel} zeigt ein Beispiel für eine Tabelle.
+
+% -----------------------------------------------------------------------------
+% Code-Beispiel
+% -----------------------------------------------------------------------------
+\section{Code-Beispiel}
+
+Hier ein Beispiel in Python:
+
+\lstset{style=Python}
+\begin{lstlisting}
+def hallo_welt():
+    print("Hallo, Welt!")
+    
+hallo_welt()
+\end{lstlisting}
+
+% Zurück zum Standard-Stil
+\lstset{language=[LaTeX]TeX}
